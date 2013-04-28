@@ -1,0 +1,29 @@
+{
+    "serving":"Serving Size: 4oz (113g)",
+    "calories":153,
+    "caloriesFromFat":71,
+    "fat":{
+        "total":8,
+        "saturated":1.5,
+        "mono":0,
+        "poly":0,
+        "trans":0
+    },
+    "cholesterol":0,
+    "sodium":62,
+    "potassium":10,
+    "carbohydrate":{
+        "total":12,
+        "fiber":3,
+        "sugars":4
+    },
+    "protein":10,
+    "vitamins":{
+        "a":0,
+        "c":0
+    },
+    "minerals":{
+        "calcium":227,
+        "iron":2
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "serving":"Serving Size: 1 cupcake (67g)",
+    "servings":"Servings Per Batch: 12",
+    "calories":194,
+    "caloriesFromFat":81,
+    "fat":{
+        "total":9,
+        "saturated":2,
+        "mono":2,
+        "poly":2,
+        "trans":0
+    },
+    "cholesterol":0,
+    "sodium":160,
+    "potassium":80,
+    "carbohydrate":{
+        "total":29,
+        "fiber":2,
+        "sugars":18
+    },
+    "protein":2,
+    "vitamins":{
+        "a":1,
+        "c":0
+    },
+    "minerals":{
+        "calcium":4,
+        "iron":7
+    }
+}

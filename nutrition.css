@@ -1,0 +1,100 @@
+/** 
+ * nutrition.css
+ * The following code formats a table for a nutrition label. Feel free to use it as you wish.
+ * Crediting the author is always appreciated.
+ * Jonathon Eric Cihlar, January 2007
+ */
+
+/**
+ * Define the table to be of the class "nutrition"
+ */
+table.nutrition {
+	width : 275px;
+	margin-top : 10px;
+	margin-left : 0;
+	margin-right : 0;
+
+	border : 1px solid black;
+	border-collapse : collapse;
+	table-layout : auto;
+
+}
+
+/**
+ * Format the caption at the top of the table
+ */
+.nutrition caption {
+	font-family : Arial;
+	font-size : small;
+	font-style: italic;
+}
+
+/** 
+ * Format the tr ids 
+ */
+.nutrition tr#calories td {
+	border-bottom : 4px solid black;
+}
+
+.nutrition tr#servings td {
+	border-bottom : 6px solid black;	
+}
+
+.nutrition tr#minerals td {
+	border-top : 4px solid black;
+}
+
+ /**
+  * Format the header, which is basically the text "Nutrition Facts"
+  */
+.nutrition th {
+	background-color : transparent;
+	padding : 3px;
+	border : 0;
+	font-family : Arial;
+	font-size : large;
+	font-weight : bolder;
+}	
+
+ /**
+  * Define the baseline style for cells
+  */
+.nutrition td {
+	padding : 3px;
+			
+	font-family : Arial;
+	font-size : x-small;
+	border : 0;
+	border-bottom : 1px solid black;
+	
+	text-align : left;
+}
+
+ /**
+  * Define the cell for Daily Values
+  */
+.nutrition td.dv {
+	font-weight : bold;
+	text-align : right;
+}
+
+ /**
+  * Set an indent for subordinate nutrients
+  */
+.nutrition td.sub {
+	text-indent : 10px;
+}
+
+ /**
+  * Set the style of the disclaimer text
+  */
+.nutrition td.disclaimer {
+	font-size : xx-small;
+}
+
+ /**
+  * Use the strong tag to set emphasis on particular text
+  */
+.nutrition strong {
+	font-weight : x-bolder;
+}

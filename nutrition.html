@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="NutritionApp" ng-controller="NutritionController">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular-resource.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="nutrition.css"/>
+    <title>Nutritional information for {{foodName}}</title>
+    <script>
+        angular.module('NutritionApp', ['ngResource']);
+        function NutritionController($scope, $resource, $location) {
+            $scope.foodURL = ($location.search()).food;
+			$scope.foodName = $scope.foodURL.replace(/_/g, ' ');
+            $scope.item = $resource($scope.foodURL + ".json").get();
+        }
+    </script>
+
+    <!-- Modified from Jonathon Eric Cihlar's blog entry of January 2007 -->
+
+</head>
+<body>
+<table class="nutrition" summary="This table summarizes nutritional information">
+    <caption>Nutritional information for {{foodName}}.</caption>
+    <tr>
+        <th colspan="2">Nutrition Facts</th>
+    </tr>
+    <tr id="servings">
+        <td colspan="2">{{item.serving}}<br/>{{item.servings}}</td>
+    </tr>
+    <tr>
+        <td colspan="2">Amount Per Serving</td>
+    </tr>
+    <tr id="calories">
+        <td><strong>Calories</strong> {{item.calories}}</td>
+        <td>Calories from Fat {{item.caloriesFromFat}} (42%)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="dv">% Daily Value *</td>
+    </tr>
+    <tr>
+        <td><strong>Total Fat</strong> {{item.fat.total}}g</td>
+        <td class="dv">{{126 / (item.fat.total) | number:0}}%</td>
+    </tr>
+    <tr>
+        <td class="sub">Saturated Fat {{item.fat.saturated}}g</td>
+        <td class="dv">{{20 / (item.fat.saturated) | number:0}}%</td>
+    </tr>
+    <tr>
+        <td class="sub">Monounsaturated Fat {{item.fat.mono}}g</td>
+        <td class="dv"></td>
+    </tr>
+    <tr>
+        <td class="sub">Polyunsaturated Fat {{item.fat.poly}}g</td>
+        <td class="dv"></td>
+    </tr>
+
+    <tr>
+        <td class="sub">Trans Fat {{item.fat.trans}}g</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><strong>Cholesterol</strong> {{item.cholesterol}}g</td>
+        <td class="dv">0%</td>
+    </tr>
+    <tr>
+        <td><strong>Sodium</strong> {{item.sodium}}mg</td>
+        <td class="dv">{{1120 / (item.sodium) | number:0}}%</td>
+    </tr>
+    <tr>
+        <td><strong>Potassium</strong> {{item.potassium}}mg</td>
+        <td class="dv">{{160 / (item.potassium) | number:0}}%</td>
+    </tr>
+    <tr>
+        <td><strong>Total Carbohydrate</strong> {{item.carbohydrate.total}}mg</td>
+        <td class="dv">{{290 / (item.carbohydrate.total) | number:0}}%</td>
+    </tr>
+    <tr>
+        <td class="sub">Dietary Fiber {{item.carbohydrate.fiber}}mg</td>
+        <td class="dv">{{16 / (item.carbohydrate.fiber) | number:0}}%</td>
+    </tr>
+    <tr>
+        <td class="sub">Sugars {{item.carbohydrate.sugars}}g</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><strong>Protein</strong> {{item.protein}}g</td>
+        <td class="dv">{{8 / (item.protein) | number:0}}%</td>
+    </tr>
+    <tr id="minerals">
+        <td>Vitamin A</td>
+        <td class="dv">{{item.vitamins.a}}%</td>
+    </tr>
+    <tr>
+        <td>Vitamin C</td>
+        <td class="dv">{{item.vitamins.c}}%</td>
+    </tr>
+    <tr>
+        <td>Calcium</td>
+        <td class="dv">{{item.vitamins.calcium}}%</td>
+    </tr>
+    <tr>
+        <td>Iron</td>
+        <td class="dv">{{item.vitamins.iron}}%</td>
+    </tr>
+    <tr>
+        <td id="disclaimer" colspan="2">
+            * The Percent Daily Values are based on a 2,000 calorie diet, so your values may change depending on your
+            calorie needs.
+            The values here may not be 100% accurate because the recipes have not been professionally evaluated nor have
+            they been evaluated by the U.S. FDA.
+        </td>
+    </tr>
+</table>
+</body>
+</html>
